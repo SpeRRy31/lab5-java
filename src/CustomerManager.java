@@ -3,8 +3,8 @@ import java.io. *;
 
 public class CustomerManager {
     private Customer customerArray[] = new Customer[100];
-    private String path= "src/customers.txt";
-
+    private String pathtxt= "src/customers.txt";
+    private String pathdat= "src/customers.dat";
     public Customer[] getCustomerArray() {
         return customerArray;
     }
@@ -107,7 +107,7 @@ public class CustomerManager {
     }
 
     public void saveToFile(){
-        try(FileWriter writer = new FileWriter(path, false))
+        try(FileWriter writer = new FileWriter(pathtxt, false))
         {
             for (int i = 0; i <customerArray.length; i ++) {
                 writer.write(customerArray[i].toCSVString());
@@ -120,7 +120,7 @@ public class CustomerManager {
         }
     }
     public void loadFromFile(){
-        try(BufferedReader reader = new BufferedReader(new FileReader(path)))
+        try(BufferedReader reader = new BufferedReader(new FileReader(pathtxt)))
         {
             String line;
             int i=0;
@@ -133,6 +133,10 @@ public class CustomerManager {
             System.out.println(ex.getMessage());
         }
     }
+
+    public void writeToDat(){}
+    public void readFromDat(){}
+
 
 
 }
