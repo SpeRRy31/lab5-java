@@ -158,6 +158,38 @@ public class CustomerManager {
         }
     }
 
+    public Customer inputCustomer(int id){
+        Scanner s = new Scanner(System.in);
+        System.out.println("input surname");
+        String surname = s.nextLine();
+        System.out.println("input name");
+        String name = s.nextLine();
+        System.out.println("input fathername");
+        String fname = s.nextLine();
+        System.out.println("input address");
+        String address = s.nextLine();
+        System.out.println("input phone number");
+        String phone = s.nextLine();
+        System.out.println("input card number");
+        String card = s.nextLine();
+        System.out.println("input balance");
+        Double bal = s.nextDouble();
+        return new Customer(id, surname, name, fname, address, phone, card, bal);
+    }
+
+    public void deleteCustomerByID(){
+        System.out.println("input Customer ID");
+        Scanner s = new Scanner(System.in);
+        int id = s.nextInt();
+        customerArray[id] = new Customer(id, "none", "none", "none", "none", "none", "none");
+    }
+
+    public void changeCustomerByID(){
+        System.out.println("input Customer ID");
+        Scanner s = new Scanner(System.in);
+        int id = s.nextInt();
+        customerArray[id]=inputCustomer(id);
+    }
 
 
 }

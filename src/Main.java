@@ -21,6 +21,7 @@ public class Main {
         System.out.println("10 - Change Customer by id");
         System.out.println("11 - Delete Customer by id");
         System.out.println("12 - Exit");
+        System.out.printf("\n Input here --> ");
     }
 
     public static int menu() {
@@ -74,10 +75,18 @@ public class Main {
                     app.printCustomers();
                     pressEnterToContinue();
                     break;
-                case 13:
+                case 10:
+                    app.changeCustomerByID();
+                    break;
+                case 11:
+                    app.deleteCustomerByID();
+                    break;
+                case 12:
                     close=true;
                     break;
                 default:
+                    System.out.println("invalid number");
+                    break;
             }
         }
     }
