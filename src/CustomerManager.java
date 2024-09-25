@@ -4,7 +4,7 @@ import java.io. *;
 public class CustomerManager {
     private Customer customerArray[] = new Customer[100];
     private String pathtxt= "src/customers.txt";
-    private String pathdat= "src/customers.dat";
+    private String pathDat= "src/customers.dat";
     public Customer[] getCustomerArray() {
         return customerArray;
     }
@@ -134,8 +134,24 @@ public class CustomerManager {
         }
     }
 
-    public void writeToDat(){}
-    public void readFromDat(){}
+    public void writeToDat(){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(pathDat)))
+        {
+            oos.writeObject(customerArray);
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+    public void readFromDat(){
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(pathDat)))
+        {
+            customerArray=((Customer[])ois.readObject());
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
 
 
 

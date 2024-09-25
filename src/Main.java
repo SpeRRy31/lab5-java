@@ -11,10 +11,13 @@ public class Main {
     public void run(){
         CustomerManager customers = new CustomerManager();
 
-        customers.loadFromFile();
+        customers.readFromDat();
 
         //customers.createCustomers();
-        //customers.saveToFile();
+        //customers.writeToDat();
+
+        customers.saveToFile();
+
 
         customers.printCustomers();
     }
