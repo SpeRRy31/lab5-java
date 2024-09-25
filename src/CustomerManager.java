@@ -96,6 +96,11 @@ public class CustomerManager {
             }
         }
     }
+    public void printCustomersBetweenBalanceRange(){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Input range min and max");
+        this.printCustomersBetweenBalanceRange(s.nextDouble(), s.nextDouble());
+    }
     public void printCustomersNullBalance(){
         int count = 0;
         for (int i = 0; i <customerArray.length; i ++){
